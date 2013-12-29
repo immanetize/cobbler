@@ -278,11 +278,13 @@ zone "%(zone)s." {
                   tokens = list(re.sub(':', '', long_zone))
                   tokens.reverse()
                   arpa = '.'.join(tokens) + '.ip6.arpa'
+		  arpa = arpa[1:]
                 else:
                   # IPv4 address split by '.'
                   tokens = zone.split('.')
                   tokens.reverse()
                   arpa = '.'.join(tokens) + '.in-addr.arpa'
+		  arpa = arpa[1:]
                   #
                 metadata['reverse_zones'].append((zone, arpa))
                 txt = """
